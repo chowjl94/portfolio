@@ -6,9 +6,13 @@ import { fadeIn, textVariant } from "../../utils/motion";
 
 const ServiceCard = ({ index, title, icon }: any) => (
 	<motion.div
-		whileHover={{ scale: 1.2 }}
+		whileHover={{
+			scale: 1.1,
+			background: "linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%)",
+			boxShadow: "0px 35px 120px -15px rgba(33, 30, 53, 0.5)",
+		}}
 		variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-		className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+		className="w-full p-[1px] rounded-[20px]"
 	>
 		<div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
 			<img
@@ -24,12 +28,11 @@ const ServiceCard = ({ index, title, icon }: any) => (
 
 const About = () => {
 	return (
-		<>
+		<div id="about">
 			<motion.div variants={textVariant(0.5)} className="p-10">
 				<p className={styles.sectionSubText}>Introduction</p>
 				<h2 className={styles.sectionHeadText}>Overview.</h2>
 			</motion.div>
-
 			<motion.p
 				animate={{ x: [0, 100, 0] }}
 				className="text-secondary text-[17px] leading-[30px] w-full pl-10 pr-5"
@@ -41,20 +44,12 @@ const About = () => {
 				vibrant, scalable, and intuitive solutions that tackle real-world
 				challenges head-on. Let's join forces and breathe life into your ideas!
 			</motion.p>
-
 			<div className="mt-20 grid grid-cols-3 gap-10 p-10">
 				{services.map((service, index) => (
 					<ServiceCard key={service.title} index={index} {...service} />
 				))}
-
-				<div className="w-48 h-72 bg-white rounded-lg shadow-md transform transition-transform ease-in-out hover:rotate-3">
-					<div className="p-5">
-						<h2 className="text-xl font-semibold">Title</h2>
-						<p className="text-sm text-gray-700">Description</p>
-					</div>
-				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
