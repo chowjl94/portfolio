@@ -6,7 +6,7 @@ import {
 } from "./canvas";
 import Hero from "./Hero/Hero";
 import Navbar from "./Navbar/Navbar";
-import About from "./About";
+import About from "./About/About";
 import Tech from "./Tech";
 import Experience from "./Experience";
 import Works from "./Works";

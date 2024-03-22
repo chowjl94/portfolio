@@ -1,6 +1,6 @@
 import ComputersCanvas from "../canvas/Computers";
 import { styles } from "../../utils/styles";
-import FramermotionScroll from "./Framermotion";
+import FramermotionScroll from "./FramermotionScroll";
 
 const Hero = () => {
 	return (
