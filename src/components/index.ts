@@ -9,7 +9,6 @@ import Navbar from "./Navbar/Navbar";
 import About from "./About/About";
 import Tech from "./Tech";
 import Experience from "./Experience/Experience";
-import Experience2 from "./Experience/Experience2";
 import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
@@ -20,7 +19,6 @@ export {
 	About,
 	Tech,
 	Experience,
-	Experience2,
 	Works,
 	Feedbacks,
 	Contact,

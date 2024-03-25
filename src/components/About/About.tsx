@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { styles } from "../../utils/styles";
 import { services } from "../../utils/constants";
 import { fadeIn, textVariant } from "../../utils/motion";
-// import StarWrapper from "./SectionWrapper";
 
 const ServiceCard = ({ index, title, icon }: any) => (
 	<motion.div

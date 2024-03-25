@@ -4,7 +4,7 @@ import { staggerContainer } from "../../utils/motion";
 import React from "react";
 
 const SectionWrapper = (
-	Component: React.ComponentType<any>, // Adjust the type to accept any React component
+	Component: React.ComponentType<any>,
 	idName: string | undefined
 ) => {
 	return function HOC() {

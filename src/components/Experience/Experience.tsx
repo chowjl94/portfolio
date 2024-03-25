@@ -1,100 +1,169 @@
-import React from "react";
 import { motion } from "framer-motion";
-import {
-	VerticalTimeline,
-	VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-
-import { styles } from "../../utils/styles";
 import { experiences } from "../../utils/constants";
-import SectionWrapper from "../Wrapper/SectionWrapper";
+import { useEffect, useRef, useState } from "react";
 import { textVariant } from "../../utils/motion";
+import { styles } from "../../utils/styles";
 
-const ExperienceCard = ({ experience }: any) => {
+interface Experience {
+	title: string;
+	company_name: string;
+	icon: string;
+	iconBg: string;
+	date: string;
+	points: string[];
+}
+interface ExperienceCardProps {
+	experience: Experience;
+	index: number;
+}
+
+const CompanyBubble = ({
+	icon,
+	company_name,
+	leftORright,
+	cardHeight,
+}: {
+	icon: string;
+	company_name: string;
+	leftORright: string;
+	cardHeight: number | null;
+}) => {
+	const position = {
+		arrowLeft: "absolute top-9 -left-6 w-4 h-4",
+		arrowRight: "absolute top-9 -right-6 w-4 h-4",
+		bubbleLeft: "absolute top-5 -left-24 w-14 h-14",
+		bubbleRight: "absolute top-5 -right-24 w-14 h-14",
+		lineLeft: `absolute -top-4 -left-40 w-[4px] bg-white`,
+		lineRight: `absolute -top-4 -right-40 w-[4px] bg-white`,
+	};
+	const arrowPosition =
+		leftORright === "right" ? position.arrowRight : position.arrowLeft;
+	const bubblePosition =
+		leftORright === "right" ? position.bubbleRight : position.bubbleLeft;
+	const linePosition =
+		leftORright === "right" ? position.lineRight : position.lineLeft;
 	return (
-		<VerticalTimelineElement
-			contentStyle={{
-				background: "#1d1836",
-				color: "#fff",
-			}}
-			contentArrowStyle={{ borderRight: "7px solid  #232631" }}
-			date={experience.date}
-			iconStyle={{ background: experience.iconBg }}
-			icon={
-				<div className="flex justify-center items-center w-full h-full">
+		<div className="relative">
+			<div className={arrowPosition}>
+				<div className="absolute w-4 h-4 bg-gray-500 transform -rotate-45"></div>
+			</div>
+			<div className={bubblePosition}>
+				<div className="absolute w-14 h-14 bg-gray-500 transform rounded-full border-2 border-white">
 					<img
-						src={experience.icon}
-						alt={experience.company_name}
-						className="w-[60%] h-[60%] object-contain"
+						src={icon}
+						alt={company_name}
+						className="absolute top-2 left-2 w-[70%] h-[70%] object-contain"
 					/>
 				</div>
-			}
-		>
-			<div>
-				<h3 className="text-white text-[24px] font-bold">{experience.title}</h3>
-				<p
-					className="text-secondary text-[16px] font-semibold"
-					style={{ margin: 0 }}
-				>
-					{experience.company_name}
-				</p>
 			</div>
+			<div className={linePosition} style={{ height: `${cardHeight}px` }}>
+				<div className="absolute w-5 h-5 -top-5 -left-2 bg-white transform -rotate-45"></div>
+			</div>
+		</div>
+	);
+};
 
-			<ul className="mt-5 list-disc ml-5 space-y-2">
-				{experience.points.map(
-					(
-						point:
-							| string
-							| number
-							| boolean
-							| React.ReactElement<
-									any,
-									string | React.JSXElementConstructor<any>
-							  >
-							| Iterable<React.ReactNode>
-							| React.ReactPortal
-							| null
-							| undefined,
-						index: any
-					) => (
-						<li
-							key={`experience-point-${index}`}
-							className="text-white-100 text-[14px] pl-1 tracking-wider"
-						>
-							{point}
-						</li>
-					)
-				)}
-			</ul>
-		</VerticalTimelineElement>
+const Title = ({
+	title,
+	company_name,
+}: {
+	title: string;
+	company_name: string;
+}) => {
+	return (
+		<>
+			<h3 className="text-white text-2xl font-bold ">{title}</h3>
+			<p
+				className="text-secondary text-lg font-semibold"
+				style={{ margin: "0" }}
+			>
+				{company_name}
+			</p>
+		</>
+	);
+};
+// x + width = half
+const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
+	const cardRef = useRef<HTMLDivElement>(null);
+	const [cardHeight, setCardHeight] = useState<number | null>(null);
+	const [cardWitdh, setCardWidth] = useState<number | null>(null);
+	const [componentWidth, setComponentWidth] = useState<number | null>(null);
+
+	const LoR = (index + 1) % 2 === 0 ? "left" : "right";
+	const whileInViewXpos =
+		index % 2 === 0
+			? componentWidth! / 2
+			: componentWidth! / 2 + cardWitdh! + 280;
+
+	useEffect(() => {
+		const handleResize = () => {
+			if (cardRef.current) {
+				setCardHeight(cardRef.current.offsetHeight);
+				setCardWidth(cardRef.current.offsetWidth);
+				setComponentWidth(cardRef.current.offsetWidth + 140);
+			}
+		};
+		handleResize();
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
+	return (
+		<>
+			<motion.div
+				initial={{ opacity: 0, scale: 0.7 }}
+				transition={{ ease: "easeOut", duration: 0.7 }}
+				whileInView={{ x: whileInViewXpos, opacity: 1, scale: 1 }}
+				viewport={{ once: true }}
+				className="mb-4"
+			>
+				<div
+					className="p-4 w-1/4 bg-gray-500 text-white min-h-[300px] max-h-[1200px] border-2"
+					ref={cardRef}
+				>
+					<CompanyBubble
+						icon={experience.icon}
+						company_name={experience.company_name}
+						leftORright={LoR}
+						cardHeight={cardHeight!}
+					/>
+
+					<Title
+						title={experience.title}
+						company_name={experience.company_name}
+					/>
+					<ul className="list-disc ml-5 space-y-2 p-2">
+						{experience.points.map((p) => (
+							<li
+								id={`experience-point-${index}`}
+								className="text-white-100 text-[14px] tracking-wider"
+							>
+								{p}
+							</li>
+						))}
+					</ul>
+					<span className="p-4">{experience.date}</span>
+				</div>
+			</motion.div>
+		</>
 	);
 };
 
 const Experience = () => {
 	return (
 		<>
-			<motion.div variants={textVariant(1)}>
-				<p className={`${styles.sectionSubText} text-center`}>
-					What I have done so far
-				</p>
+			<motion.div variants={textVariant(1)} className="mb-4">
 				<h2 className={`${styles.sectionHeadText} text-center`}>
 					Work Experience.
 				</h2>
 			</motion.div>
-
-			<div className="mt-20 flex flex-col">
-				<VerticalTimeline>
-					{experiences.map((experience: any, index: any) => (
-						<ExperienceCard
-							key={`experience-${index}`}
-							experience={experience}
-						/>
-					))}
-				</VerticalTimeline>
-			</div>
+			{experiences.map((experience, key) => (
+				<ExperienceCard key={key} experience={experience} index={key} />
+			))}
 		</>
 	);
 };
 
-export default SectionWrapper(Experience, "work");
+export default Experience;
