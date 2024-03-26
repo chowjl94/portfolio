@@ -82,7 +82,7 @@ const Title = ({
 		</>
 	);
 };
-// x + width = half
+
 const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 	const cardRef = useRef<HTMLDivElement>(null);
 	const [cardHeight, setCardHeight] = useState<number | null>(null);
@@ -154,14 +154,16 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 const Experience = () => {
 	return (
 		<>
-			<motion.div variants={textVariant(1)} className="mb-4">
-				<h2 className={`${styles.sectionHeadText} text-center`}>
-					Work Experience.
-				</h2>
-			</motion.div>
-			{experiences.map((experience, key) => (
-				<ExperienceCard key={key} experience={experience} index={key} />
-			))}
+			<div className="max-w-screen-xl mx-auto px-4">
+				<motion.div variants={textVariant(1)} className="mb-4">
+					<h2 className={`${styles.sectionHeadText} text-center`}>
+						Work Experience.
+					</h2>
+				</motion.div>
+				{experiences.map((experience, key) => (
+					<ExperienceCard key={key} experience={experience} index={key} />
+				))}
+			</div>
 		</>
 	);
 };

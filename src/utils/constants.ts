@@ -1,7 +1,6 @@
 import {
 	mobile,
 	backend,
-	creator,
 	web,
 	javascript,
 	typescript,
@@ -15,9 +14,8 @@ import {
 	git,
 	figma,
 	docker,
-	carrent,
-	jobit,
-	tripguide,
+	ideaforge,
+	kcrypy,
 	threejs,
 	posh,
 	tvc,
@@ -180,67 +178,67 @@ const testimonials = [
 
 const projects = [
 	{
-		name: "Car Rent",
+		name: "Ideaforge",
 		description:
-			"Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+			"An AI serverless SaaS , leveraging on OpenAI. It uses the concept of Retrieval Augmented Generation to chat and know more about any PDF file you feed it. Built with Next JS , Clerk Auth, NeonDB(serverless) w Drizzle ORM, files stored to AWS S3 bucket , vectors being stored on PineconeDB(severeles), Stripe Integration for payments handling and Deployed on Vercel",
 		tags: [
 			{
-				name: "react",
+				name: "NextJS",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "mongodb",
+				name: "NeonDB",
 				color: "green-text-gradient",
 			},
 			{
-				name: "tailwind",
+				name: "Drizzle ORM",
+				color: "green-text-gradient",
+			},
+			{
+				name: "Tailwind CSS",
 				color: "pink-text-gradient",
 			},
+			{
+				name: "AWS S3",
+				color: "orange-text-gradient",
+			},
+
+			{
+				name: "Stripe",
+				color: "purple-text-gradient",
+			},
 		],
-		image: carrent,
-		source_code_link: "https://github.com/",
+		image: ideaforge,
+		source_code_link: "https://github.com/chowjl94/ideaforge",
 	},
 	{
-		name: "Job IT",
+		name: "Krycpt",
 		description:
-			"Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+			"A peer to peer payment app, with solidity smart contract deployed to Goerli test net, using Alchemy web3 development platform. Built with Tailwind CSS and React and Typescript, and ethers.js connection to MetaMask wallet",
 		tags: [
 			{
-				name: "react",
+				name: "React w Typescript",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "restapi",
+				name: "Solidity",
 				color: "green-text-gradient",
 			},
 			{
-				name: "scss",
+				name: "Tailwind CSS",
 				color: "pink-text-gradient",
 			},
-		],
-		image: jobit,
-		source_code_link: "https://github.com/",
-	},
-	{
-		name: "Trip Guide",
-		description:
-			"A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-		tags: [
 			{
-				name: "nextjs",
+				name: "Alchemy",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "supabase",
-				color: "green-text-gradient",
-			},
-			{
-				name: "css",
-				color: "pink-text-gradient",
+				name: "Metamask",
+				color: "orange-text-gradient",
 			},
 		],
-		image: tripguide,
-		source_code_link: "https://github.com/",
+		image: kcrypy,
+		source_code_link: "https://github.com/chowjl94/kcryipt",
 	},
 ];
 

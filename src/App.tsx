@@ -23,12 +23,11 @@ const App = () => {
 				<About />
 				<Experience />
 				<Technology />
-				{/* <Works /> */}
-				{/* <Feedbacks /> */}
-				{/* <div className="relative z-0">
+				<Works />
+				<div className="relative z-0">
 					<Contact />
 					<StarsCanvas />
-				</div> */}
+				</div>
 			</div>
 		</BrowserRouter>
 	);

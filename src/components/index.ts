@@ -9,7 +9,7 @@ import Navbar from "./pages/Navbar/Navbar";
 import About from "./pages/About/About";
 import Technology from "./pages/Technologies/Technologies";
 import Experience from "./pages/Experience/Experience";
-import Works from "./Works";
+import Works from "./pages/Work/Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 

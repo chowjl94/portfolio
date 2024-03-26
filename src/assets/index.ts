@@ -24,7 +24,8 @@ import threejs from "./tech/threejs.svg";
 import posh from "./company/posh.jpg";
 import tvc from "./company/TVC.jpg";
 import inmagine from "./company/inmagine.jpg";
-import carrent from "./carrent.png";
+import ideaforge from "./ideaforge.png";
+import kcrypy from "./Kcrypy.jpg";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
@@ -53,7 +54,8 @@ export {
 	posh,
 	tvc,
 	inmagine,
-	carrent,
+	ideaforge,
+	kcrypy,
 	jobit,
 	tripguide,
 };
