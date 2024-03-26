@@ -26,8 +26,6 @@ import tvc from "./company/TVC.jpg";
 import inmagine from "./company/inmagine.jpg";
 import ideaforge from "./ideaforge.png";
 import kcrypy from "./Kcrypy.jpg";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 
 export {
 	logo,
@@ -56,6 +54,4 @@ export {
 	inmagine,
 	ideaforge,
 	kcrypy,
-	jobit,
-	tripguide,
 };

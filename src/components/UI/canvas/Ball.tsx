@@ -10,7 +10,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-import CanvasLoader from "../../Loader";
+import CanvasLoader from "../Loader/Loader";
 import Tooltip from "../Tooltip/Tooltip";
 
 interface BallProps {

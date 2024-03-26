@@ -154,7 +154,7 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 const Experience = () => {
 	return (
 		<>
-			<div className="max-w-screen-xl mx-auto px-4">
+			<div className="max-w-screen-xl mx-auto px-4" id="Experience">
 				<motion.div variants={textVariant(1)} className="mb-4">
 					<h2 className={`${styles.sectionHeadText} text-center`}>
 						Work Experience.
