@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { experiences } from "../../utils/constants";
+import { experiences } from "../../../utils/constants";
 import { useEffect, useRef, useState } from "react";
-import { textVariant } from "../../utils/motion";
-import { styles } from "../../utils/styles";
+import { textVariant } from "../../../utils/motion";
+import { styles } from "../../../utils/styles";
 
 interface Experience {
 	title: string;

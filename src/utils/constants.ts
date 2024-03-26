@@ -130,7 +130,7 @@ const experiences = [
 		points: [
 			"Developed mobile responsive UI/UX , React using Bootstrap for Player Management dashboard app. ",
 			"Developed , maintained and integrated CRUD , media upload , canvas annotation APIs with Django for Player Management app.",
-			"Implemented tier-based access control for backend microservice and front end UI/UX in Player Management Web App for Cricket South Africa comprising of over 100 users(coaches/players/analyst).",
+			"Implemented tier-based access control for backend microservice and front end UI/UX in Player Management Web App for Cricket South Africa comprising of over 100 coaches, players, analysts.",
 			"Responsible for refactoring frontend to ES7 , React 16.8 with the implementation of react hooks in Match Prediction Analytics app.",
 			"Implemented and integrated Slack APIs to monitor accuracy and frequency of outputs from data generated from inhouse predictive analytic models",
 		],

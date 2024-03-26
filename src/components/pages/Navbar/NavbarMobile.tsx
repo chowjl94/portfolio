@@ -1,5 +1,5 @@
-import { navLinks } from "../../utils/constants";
-import { menu, close } from "../../assets";
+import { navLinks } from "../../../utils/constants";
+import { menu, close } from "../../../assets";
 
 type Props = {
 	toggle: boolean;

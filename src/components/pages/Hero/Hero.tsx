@@ -1,5 +1,5 @@
-import ComputersCanvas from "../canvas/Computers";
-import { styles } from "../../utils/styles";
+import ComputersCanvas from "../../UI/canvas/Computers";
+import { styles } from "../../../utils/styles";
 import FramermotionScroll from "./FramermotionScroll";
 
 const Hero = () => {

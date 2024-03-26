@@ -3,12 +3,12 @@ import {
 	BallCanvas,
 	ComputersCanvas,
 	StarsCanvas,
-} from "./canvas";
-import Hero from "./Hero/Hero";
-import Navbar from "./Navbar/Navbar";
-import About from "./About/About";
-import Tech from "./Tech";
-import Experience from "./Experience/Experience";
+} from "./UI/canvas";
+import Hero from "./pages/Hero/Hero";
+import Navbar from "./pages/Navbar/Navbar";
+import About from "./pages/About/About";
+import Technology from "./pages/Technologies/Technologies";
+import Experience from "./pages/Experience/Experience";
 import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
@@ -17,7 +17,7 @@ export {
 	Hero,
 	Navbar,
 	About,
-	Tech,
+	Technology,
 	Experience,
 	Works,
 	Feedbacks,
