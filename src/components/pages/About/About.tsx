@@ -9,7 +9,6 @@ const ServiceCard = ({ index, title, icon }: any) => (
 		whileHover={{
 			scale: 1.1,
 			background: "linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%)",
-			boxShadow: "0px 35px 120px -15px rgba(33, 30, 53, 0.5)",
 		}}
 		variants={fadeIn("right", "spring", index * 0.5, 0.75)}
 		className="w-full p-[1px] rounded-[20px]"
@@ -44,7 +43,10 @@ const About = () => {
 				vibrant, scalable, and intuitive solutions that tackle real-world
 				challenges head-on. Let's join forces and breathe life into your ideas!
 			</motion.p>
-			<div className="mt-20 grid grid-cols-3 gap-10 p-10">
+			<div className="mt-10">
+				<FramermotionScroll scrollTo="Experience" abs={false} />
+			</div>
+			<div className="mt-10 grid grid-cols-3 gap-10 p-10">
 				{services.map((service, index) => (
 					<ServiceCard key={service.title} index={index} {...service} />
 				))}

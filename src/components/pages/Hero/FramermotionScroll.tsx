@@ -1,9 +1,18 @@
 import { motion } from "framer-motion";
 
-const FramermotionScroll = ({ scrollTo }: { scrollTo: string }) => {
+const FramermotionScroll = ({
+	scrollTo,
+	abs,
+}: {
+	scrollTo: string;
+	abs: boolean;
+}) => {
 	const scrollTarget = `#${scrollTo}`;
+	const parentCss = abs
+		? "absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center"
+		: "flex xs:bottom-10 bottom-32 w-full flex justify-center items-center";
 	return (
-		<div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+		<div className={parentCss}>
 			<a href={scrollTarget}>
 				<div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#f5f5f7] flex justify-center items-start p-2">
 					<motion.div

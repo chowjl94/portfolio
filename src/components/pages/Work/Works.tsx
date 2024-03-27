@@ -81,10 +81,9 @@ const Works = () => {
 				className="text-secondary text-[17px] leading-[30px] w-full"
 			>
 				Below are the various projects that I have worked on myself , they are
-				examples of my work and each project is briefly described below and what
-				they do. Feel free to explore the websites that, and allow me to
-				showcase how i solve problems and build projects with various
-				technologies
+				examples of my work and each project is briefly described below. Feel
+				free to explore the websites that, and allow me to showcase how i solve
+				problems and build projects with various technologies
 			</motion.p>
 
 			<div className="mt-20 flex flex-wrap gap-7">

@@ -1,5 +1,6 @@
 import ComputersCanvas from "../../UI/canvas/Computers";
 import { styles } from "../../../utils/styles";
+import FramermotionScroll from "./FramermotionScroll";
 
 const Hero = () => {
 	return (
@@ -20,6 +21,7 @@ const Hero = () => {
 			<div className="absolute bottom-10 h-[400px] w-full">
 				<ComputersCanvas />
 			</div>
+			<FramermotionScroll scrollTo="About" abs={true} />
 		</section>
 	);
 };
