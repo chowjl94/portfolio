@@ -1,4 +1,4 @@
-import { EarthCanvas, BallCanvas, ComputersCanvas } from "./UI/canvas";
+import { BallCanvas, ComputersCanvas } from "./UI/canvas";
 import Hero from "./pages/Hero/Hero";
 import Navbar from "./pages/Navbar/Navbar";
 import About from "./pages/About/About";
@@ -15,7 +15,6 @@ export {
 	Experience,
 	Works,
 	Contact,
-	EarthCanvas,
 	BallCanvas,
 	ComputersCanvas,
 };
