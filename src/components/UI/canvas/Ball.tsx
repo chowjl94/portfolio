@@ -100,7 +100,7 @@ const BallCanvas = ({ icon, name }: { icon: string; name: string }) => {
 						config={{ mass: 2, tension: 500 }}
 						snap={{ mass: 4, tension: 1500 }}
 					>
-						<OrbitControls enableZoom={false} enablePan={false} />
+						<OrbitControls enableZoom={false} enablePan={false} autoRotate />
 						<Ball imgUrl={icon} />
 					</PresentationControls>
 				</Suspense>
