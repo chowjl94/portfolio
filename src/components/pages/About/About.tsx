@@ -38,15 +38,15 @@ const About = () => {
 			>
 				I'm a passionate web developer fluent in the languages of TypeScript,
 				JavaScript and Python. I enjoy dabbling in projects with frameworks and
-				libraries like NextJs, Django and Three.js and many more. With an
-				insatiable thirst for learning, I enthusiatic about building things into
-				vibrant, scalable, and intuitive solutions that tackle real-world
+				libraries like NextJs, Django , Three.js and many more. With an
+				insatiable thirst for learning, I am enthusiatic about building things
+				into vibrant, scalable, and intuitive solutions that tackle real-world
 				challenges head-on. Let's join forces and breathe life into your ideas!
 			</motion.p>
 			<div className="mt-10">
 				<FramermotionScroll scrollTo="Experience" abs={false} />
 			</div>
-			<div className="mt-10 grid grid-cols-3 gap-10 p-10">
+			<div className="mt-10 p-10 gap-10 flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xs:flex-col">
 				{services.map((service, index) => (
 					<ServiceCard key={service.title} index={index} {...service} />
 				))}
