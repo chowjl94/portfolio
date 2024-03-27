@@ -109,13 +109,14 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 	}, []);
 
 	return (
-		<>
+		<div className="w-full overflow-hidden">
 			<motion.div
 				initial={{ opacity: 0, scale: 0.7 }}
 				transition={{ ease: "easeOut", duration: 0.7 }}
 				whileInView={{ x: whileInViewXpos, opacity: 1, scale: 1 }}
 				viewport={{ once: true }}
-				className="mb-4"
+				className="w-full"
+				style={{ minWidth: "100vw" }}
 			>
 				<div
 					className="p-4 w-1/4 bg-tertiary text-white min-h-[300px] max-h-[1200px] border-2 "
@@ -149,7 +150,7 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 					<span className="p-4">{experience.date}</span>
 				</div>
 			</motion.div>
-		</>
+		</div>
 	);
 };
 

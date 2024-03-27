@@ -46,7 +46,7 @@ const About = () => {
 			<div className="mt-10">
 				<FramermotionScroll scrollTo="Experience" abs={false} />
 			</div>
-			<div className="mt-10 p-10 gap-10 flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xs:flex-col">
+			<div className="mt-10 p-10 gap-10 flex flex-col md:flex-row">
 				{services.map((service, index) => (
 					<ServiceCard key={service.title} index={index} {...service} />
 				))}

@@ -25,10 +25,14 @@ const ContactCard = ({
 	link?: string;
 }) => {
 	return (
-		<div className="flex flex-col items-center justify-between border-2 rounded-md p-4 w-64 h-32">
-			<h3 className="text-white text-[14px] font-bol123d">{text}</h3>
+		<div className="flex flex-col items-center border-2 rounded-md p-2 mb-2 w-auto h-auto min-w-60">
+			<h3 className="text-white text-[10px] font-bold hidden sm:block xs:hidden">
+				{text}
+			</h3>
 			<div className="flex items-center justify-center">{icon}</div>
-			<div className="flex items-center text-[14px] justify-center">{link}</div>
+			<div className="flex items-center text-[8px] justify-center whitespace-normal">
+				{link}
+			</div>
 		</div>
 	);
 };
@@ -44,8 +48,8 @@ const Contact = () => {
 			>
 				<p className={styles.sectionSubText}>Get in touch</p>
 				<h1 className={styles.sectionHeadText}>Socials</h1>
-				<div className="bg-tertiary rounded-[20px]  min-h-[140px] flex justify-evenly flex-col">
-					<div className="grid grid-cols-4 justify-items-center p-4">
+				<div className="bg-tertiary rounded-[20px] h-auto p-4 justify-center flex flex-col">
+					<div className="flex xl:flex-row lg:flex-row flex-wrap md:flex-col sm:flex-col xs:flex-col justify-center px-4 pt-2 gap-5">
 						{SOCIALS.slice(0, 2).map((social, index) => (
 							<a
 								key={index}

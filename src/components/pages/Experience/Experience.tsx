@@ -7,7 +7,7 @@ import ExperienceCard from "./ExperienceCard";
 
 const Experience = () => {
 	return (
-		<>
+		<div className="w-full">
 			<span className="hash-span" id={"Experience"}>
 				&nbsp;
 			</span>
@@ -27,7 +27,7 @@ const Experience = () => {
 					<ExperienceCard key={key} experience={experience} index={key} />
 				))}
 			</div>
-		</>
+		</div>
 	);
 };
 
