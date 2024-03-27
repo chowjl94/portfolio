@@ -21,7 +21,6 @@ const Ball = ({ imgUrl }: BallProps) => {
 	const [decal] = useTexture([imgUrl]);
 	const meshRef = useRef<THREE.Mesh>(null);
 	const [snapBack, setSnapBack] = useState(false);
-	const meshPosition = useRef<THREE.Vector3>(new THREE.Vector3());
 	const initialRotation = new THREE.Vector3(0, 0, 2 * Math.PI);
 
 	const handleDown = () => {
@@ -58,6 +57,8 @@ const Ball = ({ imgUrl }: BallProps) => {
 		<Float speed={1} rotationIntensity={1} floatIntensity={2}>
 			<ambientLight intensity={0.25} />
 			<directionalLight position={[0, 0, 0.05]} />
+			<directionalLight position={[0, 0, -0.05]} />
+
 			<mesh
 				ref={meshRef}
 				castShadow
@@ -79,6 +80,7 @@ const Ball = ({ imgUrl }: BallProps) => {
 					scale={1}
 					map={decal}
 				/>
+				<Decal position={[0, 0, -1]} scale={[-1, 1, 1]} map={decal} />
 			</mesh>
 		</Float>
 	);

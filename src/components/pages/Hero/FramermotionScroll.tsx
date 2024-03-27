@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 
-const FramermotionScroll = () => {
+const FramermotionScroll = ({ scrollTo }: { scrollTo: string }) => {
+	const scrollTarget = `#${scrollTo}`;
 	return (
 		<div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-			<a href="#about">
+			<a href={scrollTarget}>
 				<div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#f5f5f7] flex justify-center items-start p-2">
 					<motion.div
 						animate={{

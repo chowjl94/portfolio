@@ -20,6 +20,10 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import nextjs from "./tech/next-js.svg";
+import python from "./tech/python.svg";
+import zustand from "./tech/zustand.png";
+import sql from "./tech/SQL.svg";
 
 import posh from "./company/posh.jpg";
 import tvc from "./company/TVC.jpg";
@@ -54,4 +58,8 @@ export {
 	inmagine,
 	ideaforge,
 	kcrypy,
+	nextjs,
+	zustand,
+	python,
+	sql,
 };

@@ -7,12 +7,10 @@ import {
 	html,
 	css,
 	reactjs,
-	redux,
 	tailwind,
 	nodejs,
 	mongodb,
 	git,
-	figma,
 	docker,
 	ideaforge,
 	kcrypy,
@@ -20,6 +18,10 @@ import {
 	posh,
 	tvc,
 	inmagine,
+	zustand,
+	sql,
+	nextjs,
+	python,
 } from "../assets";
 
 export const navLinks = [
@@ -34,6 +36,10 @@ export const navLinks = [
 	{
 		id: "Project",
 		title: "Project",
+	},
+	{
+		id: "Socials",
+		title: "Socials",
 	},
 ];
 
@@ -74,13 +80,27 @@ const technologies = [
 		icon: reactjs,
 	},
 	{
-		name: "Redux Toolkit",
-		icon: redux,
+		name: "Next JS",
+		icon: nextjs,
+	},
+	{
+		name: "Zustand",
+		icon: zustand,
 	},
 	{
 		name: "Tailwind CSS",
 		icon: tailwind,
 	},
+
+	{
+		name: "SQL",
+		icon: sql,
+	},
+	{
+		name: "Python",
+		icon: python,
+	},
+
 	{
 		name: "Node JS",
 		icon: nodejs,
@@ -94,15 +114,11 @@ const technologies = [
 		icon: threejs,
 	},
 	{
-		name: "git",
+		name: "Git",
 		icon: git,
 	},
 	{
-		name: "figma",
-		icon: figma,
-	},
-	{
-		name: "docker",
+		name: "Docker",
 		icon: docker,
 	},
 ];

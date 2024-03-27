@@ -3,6 +3,7 @@ import { experiences } from "../../../utils/constants";
 import { useEffect, useRef, useState } from "react";
 import { textVariant } from "../../../utils/motion";
 import { styles } from "../../../utils/styles";
+import SectionWrapper from "../../Wrapper/SectionWrapper";
 
 interface Experience {
 	title: string;
@@ -45,10 +46,10 @@ const CompanyBubble = ({
 	return (
 		<div className="relative">
 			<div className={arrowPosition}>
-				<div className="absolute w-4 h-4 bg-gray-500 transform -rotate-45"></div>
+				<div className="absolute w-4 h-4 bg-tertiary transform -rotate-45"></div>
 			</div>
 			<div className={bubblePosition}>
-				<div className="absolute w-14 h-14 bg-gray-500 transform rounded-full border-2 border-white">
+				<div className="absolute w-14 h-14 bg-tertiary transform rounded-full border-2 ">
 					<img
 						src={icon}
 						alt={company_name}
@@ -120,8 +121,13 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 				className="mb-4"
 			>
 				<div
-					className="p-4 w-1/4 bg-gray-500 text-white min-h-[300px] max-h-[1200px] border-2"
+					className="p-4 w-1/4 bg-tertiary text-white min-h-[300px] max-h-[1200px] border-2 "
 					ref={cardRef}
+					style={{
+						borderImage:
+							"linear-gradient(90deg, #00cea8, #bf61ff) 2 radius-2px",
+						borderRadius: "8px",
+					}}
 				>
 					<CompanyBubble
 						icon={experience.icon}
@@ -154,10 +160,13 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 const Experience = () => {
 	return (
 		<>
-			<div className="max-w-screen-xl mx-auto px-4" id="Experience">
+			<span className="hash-span" id={"Experience"}>
+				&nbsp;
+			</span>
+			<div className="max-w-screen-xl mx-auto px-4">
 				<motion.div variants={textVariant(1)} className="mb-4">
 					<h2 className={`${styles.sectionHeadText} text-center`}>
-						Work Experience.
+						Work Experience
 					</h2>
 				</motion.div>
 				{experiences.map((experience, key) => (

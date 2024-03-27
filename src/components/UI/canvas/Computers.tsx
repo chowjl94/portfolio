@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader/Loader";
+import Tooltip from "../Tooltip/Tooltip";
 
 const Computers = ({ isMobile }: any) => {
 	const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -23,10 +24,10 @@ const Computers = ({ isMobile }: any) => {
 
 			<primitive
 				object={computer.scene}
-				scale={isMobile ? 0.7 : 0.75}
-				//x(up, down) , y(left right) ,z(to screen, out screeen)
-				position={isMobile ? [0, -3, -2.2] : [0, -4, -1.5]}
-				rotation={[-0.01, -0.2, -0.1]}
+				scale={isMobile ? 0.7 : 1.1}
+				//x(in , out) , y(up , down) ,z(left , right)
+				position={isMobile ? [0, -2, -4] : [0, -2, -4]}
+				rotation={[-0.01, -0.7, -0.1]}
 			/>
 		</mesh>
 	);
@@ -36,23 +37,14 @@ const ComputersCanvas = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		// Add a listener for changes to the screen size
 		const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-		// Set the initial value of the `isMobile` state variable
 		setIsMobile(mediaQuery.matches);
-
-		// Define a callback function to handle changes to the media query
 		const handleMediaQueryChange = (event: {
 			matches: boolean | ((prevState: boolean) => boolean);
 		}) => {
 			setIsMobile(event.matches);
 		};
-
-		// Add the callback function as a listener for changes to the media query
 		mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-		// Remove the listener when the component is unmounted
 		return () => {
 			mediaQuery.removeEventListener("change", handleMediaQueryChange);
 		};
@@ -65,6 +57,9 @@ const ComputersCanvas = () => {
 			dpr={[1, 2]}
 			camera={{ position: [20, 3, 5], fov: 25 }}
 			gl={{ preserveDrawingBuffer: true }}
+			style={{
+				cursor: "grab",
+			}}
 		>
 			<Suspense fallback={<CanvasLoader />}>
 				<OrbitControls

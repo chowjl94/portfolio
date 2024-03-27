@@ -22,6 +22,7 @@ const App = () => {
 				<Experience />
 				<Technology />
 				<Works />
+				<Contact />
 			</div>
 		</BrowserRouter>
 	);

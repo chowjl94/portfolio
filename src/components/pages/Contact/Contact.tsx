@@ -1,90 +1,77 @@
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import SectionWrapper from "../../Wrapper/SectionWrapper";
-import { slideIn } from "../../../utils/motion";
 import { styles } from "../../../utils/styles";
-import Form from "./Form";
+import { fadeIn } from "../../../utils/motion";
+import { Github, Linkedin, Smartphone, Mail } from "lucide-react";
+
+const SOCIALS = [
+	{ text: "Github", icon: <Github />, link: "https://github.com/chowjl94" },
+	{
+		text: "LinkedIn",
+		icon: <Linkedin />,
+		link: "www.linkedin.com/in/chowjinglun",
+	},
+	{ text: "Contact", icon: <Smartphone />, link: "+65 91283531" },
+	{ text: "Mail", icon: <Mail />, link: "chowjl94@gmail.com" },
+];
+
+const ContactCard = ({
+	text,
+	icon,
+	link,
+}: {
+	text: string;
+	icon: any;
+	link?: string;
+}) => {
+	return (
+		<div className="flex flex-col items-center justify-between border-2 rounded-md p-4 w-64 h-32">
+			<h3 className="text-white text-[14px] font-bol123d">{text}</h3>
+			<div className="flex items-center justify-center">{icon}</div>
+			<div className="flex items-center text-[14px] justify-center">{link}</div>
+		</div>
+	);
+};
 
 const Contact = () => {
-	const formRef = useRef<HTMLFormElement>(null);
-	const [form, setForm] = useState({
-		name: "",
-		email: "",
-		message: "",
-	});
-
-	const [loading, setLoading] = useState(false);
-
-	const handleChange = (
-		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => {
-		const { target } = e;
-		const { name, value } = target;
-
-		setForm({
-			...form,
-			[name]: value,
-		});
-	};
-
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		setLoading(true);
-
-		emailjs
-			.send(
-				import.meta.env.VITE_EJS_SERVICE_KEY,
-				import.meta.env.VITE_EJS_TEMPLATE_KEY,
-				{
-					from_name: form.name,
-					to_name: "Jing Lun",
-					from_email: form.email,
-					to_email: "chowjl94@gmail.com",
-					message: form.message,
-				},
-				import.meta.env.VITE_EJS_PUBLIC_KEY
-			)
-			.then(
-				() => {
-					setLoading(false);
-					alert("Thank you. I will get back to you as soon as possible.");
-
-					setForm({
-						name: "",
-						email: "",
-						message: "",
-					});
-				},
-				(error) => {
-					setLoading(false);
-					console.error(error);
-
-					alert("Ahh, something went wrong. Please try again.");
-				}
-			);
-	};
-
 	return (
 		<div
-			className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden w-full min-w-full`}
+			className={`xl:mt-12 flex xl:flex-row flex-col-reverse overflow-hidden w-full min-w-full`}
 		>
 			<motion.div
-				variants={slideIn("left", "tween", 0.2, 1)}
-				className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+				variants={fadeIn("right", "spring", 1 * 0.5, 0.75)}
+				className="w-full p-[1px] rounded-[20px]"
 			>
 				<p className={styles.sectionSubText}>Get in touch</p>
-				<h3 className={styles.sectionHeadText}>Contact Me</h3>
-				<Form
-					formRef={formRef}
-					handleSubmit={handleSubmit}
-					handleChange={handleChange}
-					formData={form}
-					loading={loading}
-				/>
+				<h1 className={styles.sectionHeadText}>Socials</h1>
+				<div className="bg-tertiary rounded-[20px]  min-h-[140px] flex justify-evenly flex-col">
+					<div className="grid grid-cols-4 justify-items-center p-4">
+						{SOCIALS.slice(0, 2).map((social, index) => (
+							<a
+								key={index}
+								href={social.link}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<ContactCard
+									text={social.text}
+									icon={social.icon}
+									link={social.link}
+								/>
+							</a>
+						))}
+						{SOCIALS.slice(2, 4).map((social) => (
+							<ContactCard
+								text={social.text}
+								icon={social.icon}
+								link={social.link}
+							/>
+						))}
+					</div>
+				</div>
 			</motion.div>
 		</div>
 	);
 };
 
-export default SectionWrapper(Contact, "contact");
+export default SectionWrapper(Contact, "Socials");
