@@ -6,16 +6,12 @@ import { useEffect, useRef, useState } from "react";
 
 const ExperienceCardMobile = ({ experience, index }: ExperienceCardProps) => {
 	const cardRef = useRef<HTMLDivElement>(null);
-	const [cardHeight, setCardHeight] = useState<number | null>(null);
-	const [cardWitdh, setCardWidth] = useState<number | null>(null);
-	const [componentWidth, setComponentWidth] = useState<number | null>(null);
+	const [cardHeight, setCardHeight] = useState<number | null>(20);
 
 	useEffect(() => {
 		const handleResize = () => {
 			if (cardRef.current) {
 				setCardHeight(cardRef.current.offsetHeight);
-				setCardWidth(cardRef.current.offsetWidth);
-				setComponentWidth(cardRef.current.offsetWidth + 140);
 			}
 		};
 		handleResize();

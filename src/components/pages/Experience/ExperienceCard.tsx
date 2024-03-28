@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 	const cardRef = useRef<HTMLDivElement>(null);
-	const [cardHeight, setCardHeight] = useState<number | null>(null);
+	const [cardHeight, setCardHeight] = useState<number | null>(20);
 	const [cardWitdh, setCardWidth] = useState<number | null>(null);
 	const [componentWidth, setComponentWidth] = useState<number | null>(null);
 
