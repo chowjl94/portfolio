@@ -17,6 +17,14 @@ module.exports = {
 				"hero-pattern": "url('/src/assets/background.png')",
 			},
 		},
+		screens: {
+			xs: "340px",
+			sm: "640px",
+			md: "800px",
+			lg: "1024px",
+			xl: "1200px",
+			"2xl": "1536px",
+		},
 	},
 	plugins: [],
 };

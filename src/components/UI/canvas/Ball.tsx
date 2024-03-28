@@ -20,38 +20,38 @@ interface BallProps {
 const Ball = ({ imgUrl }: BallProps) => {
 	const [decal] = useTexture([imgUrl]);
 	const meshRef = useRef<THREE.Mesh>(null);
-	const [snapBack, setSnapBack] = useState(false);
-	const initialRotation = new THREE.Vector3(0, 0, 2 * Math.PI);
+	// const [snapBack, setSnapBack] = useState(false);
+	// const initialRotation = new THREE.Vector3(0, 0, 2 * Math.PI);
 
-	const handleDown = () => {
-		setSnapBack(false);
-	};
-	const handleUp = () => {
-		setSnapBack(true);
-	};
+	// const handleDown = () => {
+	// 	setSnapBack(false);
+	// };
+	// const handleUp = () => {
+	// 	setSnapBack(true);
+	// };
 
-	useFrame(() => {
-		if (meshRef.current && snapBack) {
-			const currentRotation = meshRef.current.rotation.clone(); // Clone the rotation to avoid mutation
-			const initialRotationEuler = new THREE.Euler(
-				initialRotation.x,
-				initialRotation.y,
-				initialRotation.z
-			);
+	// useFrame(() => {
+	// 	if (meshRef.current && snapBack) {
+	// 		const currentRotation = meshRef.current.rotation.clone(); // Clone the rotation to avoid mutation
+	// 		const initialRotationEuler = new THREE.Euler(
+	// 			initialRotation.x,
+	// 			initialRotation.y,
+	// 			initialRotation.z
+	// 		);
 
-			if (
-				currentRotation.x !== initialRotation.x ||
-				currentRotation.y !== initialRotation.y ||
-				currentRotation.z !== initialRotation.z
-			) {
-				meshRef.current.rotation.set(
-					initialRotationEuler.x,
-					initialRotationEuler.y,
-					initialRotationEuler.z
-				);
-			}
-		}
-	});
+	// 		if (
+	// 			currentRotation.x !== initialRotation.x ||
+	// 			currentRotation.y !== initialRotation.y ||
+	// 			currentRotation.z !== initialRotation.z
+	// 		) {
+	// 			meshRef.current.rotation.set(
+	// 				initialRotationEuler.x,
+	// 				initialRotationEuler.y,
+	// 				initialRotationEuler.z
+	// 			);
+	// 		}
+	// 	}
+	// });
 
 	return (
 		<Float speed={1} rotationIntensity={1} floatIntensity={2}>
@@ -64,8 +64,8 @@ const Ball = ({ imgUrl }: BallProps) => {
 				castShadow
 				receiveShadow
 				scale={2.75}
-				onPointerDown={handleDown}
-				onPointerUp={handleUp}
+				// onPointerDown={handleDown}
+				// onPointerUp={handleUp}
 			>
 				<icosahedronGeometry args={[1, 1]} />
 				<meshStandardMaterial
@@ -92,7 +92,7 @@ const BallCanvas = ({ icon, name }: { icon: string; name: string }) => {
 			<Canvas // canvas to load our 3d Ball with enabled orbit Controls
 				frameloop="demand" // on demand rendering as the items come to a rest
 				gl={{ preserveDrawingBuffer: true }}
-				style={{ cursor: "grab" }}
+				style={{ cursor: "grab", width: "250px" }}
 			>
 				<Suspense fallback={<CanvasLoader />}>
 					<PresentationControls

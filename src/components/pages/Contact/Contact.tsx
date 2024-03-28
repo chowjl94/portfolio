@@ -25,7 +25,7 @@ const ContactCard = ({
 	link?: string;
 }) => {
 	return (
-		<div className="flex flex-col items-center border-2 rounded-md p-2 mb-2 w-auto h-auto min-w-60">
+		<div className="flex flex-col items-center border-2 rounded-md p-2 mb-2 w-auto h-auto min-w-60 xs:min-w-10rem">
 			<h3 className="text-white text-[10px] font-bold hidden sm:block xs:hidden">
 				{text}
 			</h3>

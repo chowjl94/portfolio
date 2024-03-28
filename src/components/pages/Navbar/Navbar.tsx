@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { styles } from "../../../utils/styles";
 import { navLinks } from "../../../utils/constants";
 import NavbarMobile from "./NavbarMobile";
 
